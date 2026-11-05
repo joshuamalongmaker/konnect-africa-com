@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutorials - Konnect Africa</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="team.css">
+  <link rel="stylesheet" href="site-redesign.css">
+  <style>
+    .tutorials-container { max-width: 800px; margin: 40px auto; background: #fff; border-radius: 8px; padding: 20px; }
+    .video-gallery { display: flex; flex-wrap: wrap; gap: 20px; }
+    .video-item { width: 320px; }
+    .video-item video { width: 100%; border-radius: 8px; }
+    .upload-form { margin-bottom: 30px; padding: 20px; border: 1px solid #eee; border-radius: 8px; background: #fafafa; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">
+      <img src="fish-logo.svg" alt="Konnect Africa fish logo" />
+    </a>
+    <nav class="navbar">
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="index.html">Home</a></li>
+        <li class="nav-item"><a href="About.html">About</a></li>
+        <li class="nav-item"><a href="services.html">Services</a></li>
+        <li class="nav-item"><a href="Why.html">Why Us</a></li>
+        <li class="nav-item"><a href="team.html">Team</a></li>
+        <li class="nav-item"><a href="contact.html">Contact</a></li>
+        <li class="nav-item"><a href="tutorials.html" class="active">Tutorials</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section class="tutorials-container">
+    <h2>Tutorials & Video Lectures</h2>
+    <div id="login-section">
+      <input type="password" id="admin-password" placeholder="Enter admin password">
+      <button onclick="loginAdmin()">Login as Tutor/Admin</button>
+      <p id="login-error" style="color:red;"></p>
+    </div>
+    <form id="upload-form" class="upload-form hidden" enctype="multipart/form-data">
+      <h3>Upload New Tutorial (Tutors/Admins Only)</h3>
+      <input type="text" name="title" placeholder="Video Title" required><br><br>
+      <textarea name="description" placeholder="Description" required></textarea><br><br>
+      <input type="file" name="video" accept="video/*" required><br><br>
+      <button type="submit">Upload Video</button>
+      <p id="upload-status"></p>
+    </form>
+    <h3>Available Tutorials</h3>
+    <div class="video-gallery" id="video-gallery"></div>
+  </section>
+  <footer>
+    <div class="container">
+      <p>&copy; 2023 Konnect Africa. All rights reserved.</p>
+    </div>
+  </footer>
+  <script>
+    // Simple password for demo (replace with secure auth in production)
+    const ADMIN_PASSWORD = 'konnect2024'; // Change this to your secret
+    function loginAdmin() {
+      const input = document.getElementById('admin-password');
+      const error = document.getElementById('login-error');
+      if (input.value === ADMIN_PASSWORD) {
+        document.getElementById('upload-form').classList.remove('hidden');
+        document.getElementById('login-section').classList.add('hidden');
+      } else {
+        error.textContent = 'Incorrect password.';
+      }
+    }
+    // Handle video upload
+    document.getElementById('upload-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const formData = new FormData(form);
+      const status = document.getElementById('upload-status');
+      status.textContent = 'Uploading...';
+      try {
+        const res = await fetch('/api/tutorials/upload', {
+          method: 'POST',
+          body: formData
+        });
+        const data = await res.json();
+        if (res.ok) {
+          status.textContent = 'Upload successful!';
+          form.reset();
+          loadVideos();
+        } else {
+          status.textContent = data.error || 'Upload failed.';
+        }
+      } catch (err) {
+        status.textContent = 'Upload failed.';
+      }
+    });
+    // Load and display videos
+    async function loadVideos() {
+      const gallery = document.getElementById('video-gallery');
+      gallery.innerHTML = 'Loading...';
+      const res = await fetch('/api/tutorials');
+      const videos = await res.json();
+      gallery.innerHTML = '';
+      videos.forEach(video => {
+        const div = document.createElement('div');
+        div.className = 'video-item';
+        div.innerHTML = `
+          <video controls src="/uploads/videos/${video.filename}"></video>
+          <h4>${video.title}</h4>
+          <p>${video.description}</p>
+        `;
+        gallery.appendChild(div);
+      });
+    }
+    loadVideos();
+  </script>
+</body>
+</html> 

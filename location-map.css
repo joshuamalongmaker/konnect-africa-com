@@ -1,0 +1,53 @@
+.south-sudan-map-section {
+  padding: 4.5rem 0;
+  background: var(--bg-secondary, #f8f9fa);
+}
+
+.south-sudan-map-section h2 {
+  margin: 0 0 1rem;
+  color: var(--text-primary, #222);
+  text-align: center;
+}
+
+.south-sudan-map-intro {
+  max-width: 720px;
+  margin: 0 auto 1.5rem;
+  color: var(--text-secondary, #555);
+  line-height: 1.6;
+  text-align: center;
+}
+
+.south-sudan-map-canvas {
+  min-height: 440px;
+  border: 1px solid #d5dadd;
+  border-radius: 12px;
+  background: #e8eef0;
+  box-shadow: 0 8px 24px rgba(20, 35, 45, 0.12);
+  z-index: 0;
+}
+
+.south-sudan-map-status,
+.south-sudan-map-attribution {
+  margin: 0.75rem 0 0;
+  color: var(--text-secondary, #555);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.south-sudan-map-status[data-state="error"] {
+  color: #a3172e;
+}
+
+.south-sudan-map-attribution {
+  font-size: 0.8rem;
+}
+
+@media (max-width: 600px) {
+  .south-sudan-map-section {
+    padding: 3rem 0;
+  }
+
+  .south-sudan-map-canvas {
+    min-height: 360px;
+  }
+}

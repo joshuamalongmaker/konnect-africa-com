@@ -1,0 +1,50 @@
+/* Section - Team */
+#team {
+  background-color: #000000;
+  padding: 100px 0;
+  text-align: center;
+  color: #ffffff;
+}
+
+.team h2 {
+  font-size: 36px;
+  font-weight: 800;
+}
+
+/* Styles for team members */
+.team-members {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.team-member {
+  text-align: center;
+}
+
+.team-member img {
+  width: 200px;
+  height: 200px;
+  border: 5px solid #d40606;
+  border-radius: 50%;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease-in-out;
+}
+
+.team-member h3 {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.team-member p {
+  font-size: 16px;
+  color: #777;
+}
+
+/* Hover effect for team member images */
+.team-member img:hover {
+  filter: grayscale(0%);
+}

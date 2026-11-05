@@ -1,0 +1,49 @@
+#why-us {
+  background-color: black;
+  padding: 100px 0;
+  text-align: center;
+  color: #ffffff;
+}
+
+#why-us ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  text-align: center;
+}
+
+#why-us ul li {
+  margin-bottom: 20px;
+}
+
+#why-us ul li strong {
+  font-weight: bold;
+  color: #da1a1a;
+}
+/* Styles for the point images */
+.point-image {
+  max-width: 100px;
+  margin-left: 50px;
+}
+
+@media screen and (max-width: 768px) {
+  #why-us {
+    padding: 40px 0;
+  }
+
+  #why-us ul li {
+    margin-bottom: 10px;
+  }
+}
+
+#why-us ul li {
+  margin-bottom: 10px;
+  flex-direction: column; /* Stack text and image on smaller screens */
+  align-items: flex-start; /* Align items to the start of the container */
+}
+
+/* Center align the image on smaller screens */
+.point-image {
+  margin-left: 0;
+  text-align: center;
+}

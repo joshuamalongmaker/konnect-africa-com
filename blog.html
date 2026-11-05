@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Konnect Africa's Blog - Insights, News, and Updates from across Africa">
+    <title>News &amp; Insights | Konnect Africa</title>
+    <link rel="icon" type="image/svg+xml" href="fish-mark.svg">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="components.css">
+    <link rel="stylesheet" href="blog.css">
+    <link rel="stylesheet" href="site-redesign.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header>
+        <div class="header-container">
+        <a href="index.html" class="logo"><img src="fish-logo-light.svg" alt="Konnect Africa fish logo">Konnect Africa</a>
+        <nav class="navbar">
+            <ul class="nav-menu" id="primary-navigation">
+                <li class="nav-item"><a href="index.html">Home</a></li>
+                <li class="nav-item"><a href="About.html">About</a></li>
+                <li class="nav-item"><a href="services.html">Programmes</a></li>
+                <li class="nav-item"><a href="portfolio.html">Projects &amp; Impact</a></li>
+                <li class="nav-item"><a href="partners.html">Partners</a></li>
+                <li class="nav-item"><a href="team.html">Team &amp; Leadership</a></li>
+                <li class="nav-item"><a href="blog.html" class="active" aria-current="page">News &amp; Insights</a></li>
+                <li class="nav-item"><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="hamburger" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </nav>
+        </div>
+    </header>
+
+    <main class="blog-page" id="main-content">
+        <section class="blog-hero">
+            <div class="container">
+                <h1>News &amp; Insights</h1>
+                <p>A regularly refreshed feed of African agribusiness and fisheries news, development reports and academic research.</p>
+            </div>
+        </section>
+
+        <section class="blog-content">
+            <div class="container">
+                <div class="blog-grid live-news-layout">
+                    <section class="blog-posts" aria-labelledby="latest-news-heading">
+                        <div class="live-news-heading">
+                            <div>
+                                <h2 id="latest-news-heading">Agribusiness, Fisheries &amp; Livelihoods</h2>
+                                <p>News, development-sector reports and research from across Africa and beyond.</p>
+                            </div>
+                        </div>
+                        <div class="news-controls">
+                            <div class="news-filters" role="group" aria-label="Filter feed by content type">
+                                <button class="news-filter active" type="button" data-news-category="all" aria-pressed="true">All</button>
+                                <button class="news-filter" type="button" data-news-category="news" aria-pressed="false">News</button>
+                                <button class="news-filter" type="button" data-news-category="reports" aria-pressed="false">Reports</button>
+                                <button class="news-filter" type="button" data-news-category="research" aria-pressed="false">Research</button>
+                            </div>
+                            <label class="news-search-label" for="news-search">Search the feed</label>
+                            <input id="news-search" class="news-search" type="search" placeholder="Search headlines, sources and topics">
+                        </div>
+                        <p id="news-status" class="news-status" role="status" aria-live="polite">Loading current Africa news…</p>
+                        <div class="news-list" id="live-news-list"></div>
+                        <p class="news-attribution">Headlines, development reports and research metadata are provided by <a href="https://www.gdeltproject.org/" target="_blank" rel="noopener noreferrer">GDELT</a>, the <a href="https://www.worldbank.org/en/research" target="_blank" rel="noopener noreferrer">World Bank Documents &amp; Reports API</a> and <a href="https://www.crossref.org/" target="_blank" rel="noopener noreferrer">Crossref</a>. Content remains with its original publisher.</p>
+                    </section>
+
+                    <div class="blog-sidebar">
+                        <div class="sidebar-section">
+                            <h3>Our objectives</h3>
+                            <p>We connect this coverage to the priorities at the heart of Konnect Africa’s work:</p>
+                            <ul class="news-objectives">
+                                <li>Empowering communities and strengthening livelihoods</li>
+                                <li>Supporting sustainable agriculture and fisheries</li>
+                                <li>Promoting good governance and inclusive development</li>
+                            </ul>
+                            <a class="text-link" href="portfolio.html">Projects &amp; impact <span aria-hidden="true">→</span></a>
+                        </div>
+                        <div class="sidebar-section">
+                            <h3>Share an idea</h3>
+                            <p>Have a story or partnership idea? We would be glad to hear from you.</p>
+                            <a class="text-link" href="contact.html">Contact our team <span aria-hidden="true">→</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Konnect Africa</h3>
+                    <p>Community-led development and sustainable impact across Africa.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Explore</h3>
+                    <ul>
+                        <li><a href="About.html">About</a></li>
+                        <li><a href="services.html">Programmes</a></li>
+                        <li><a href="portfolio.html">Projects &amp; Impact</a></li>
+                        <li><a href="partners.html">Partners</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><a href="mailto:konnectafricanconsult24@gmail.com">konnectafricanconsult24@gmail.com</a></p>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2026 Konnect Africa. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="blog.js"></script>
+</body>
+</html>

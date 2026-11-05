@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 120" role="img" aria-labelledby="title description">
+  <title id="title">Konnect Africa fish mark</title>
+  <desc id="description">A silver and olive-gray Nile perch swimming over flowing water.</desc>
+  <defs>
+    <linearGradient id="fish-silver" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#d8d5c6"/>
+      <stop offset=".48" stop-color="#a5a99f"/>
+      <stop offset="1" stop-color="#58636a"/>
+    </linearGradient>
+    <style>
+      .swimmer { animation: swim 2.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+      .tail { animation: tail 650ms ease-in-out infinite alternate; transform-box: view-box; transform-origin: 47px 57px; }
+      .water { animation: water 3.6s ease-in-out infinite; }
+      .bubble { animation: bubble 2.2s ease-in-out infinite; transform-box: view-box; transform-origin: center; }
+      @keyframes swim { 0%, 100% { transform: translateY(1px); } 50% { transform: translateY(-2px); } }
+      @keyframes tail { from { transform: rotate(-5deg); } to { transform: rotate(5deg); } }
+      @keyframes water { 0%, 100% { opacity: .48; transform: translateX(0); } 50% { opacity: .9; transform: translateX(3px); } }
+      @keyframes bubble { 0%, 100% { opacity: .25; transform: translateY(2px); } 50% { opacity: .9; transform: translateY(-2px); } }
+      @media (prefers-reduced-motion: reduce) {
+        .swimmer, .tail, .water, .bubble { animation: none; }
+      }
+    </style>
+  </defs>
+  <g class="water" fill="none" stroke="#a3172e" stroke-linecap="round" stroke-width="2">
+    <path d="M16 103c10-4 20-4 30 0s20 4 30 0 20-4 30 0 20 4 30 0 20 4 30 0"/>
+    <path d="M30 111c8-3 16-3 24 0s16 3 24 0 16-3 24 0 16 3 24 0 16 3 24 0" opacity=".55"/>
+  </g>
+  <g class="swimmer">
+    <path class="tail" d="M48 57 16 33 22 57 16 81Z" fill="url(#fish-silver)"/>
+    <path d="M42 57c13-19 38-31 66-31 21 0 37 8 48 23l8 8-8 8c-11 15-27 23-48 23-28 0-53-12-66-31Z" fill="url(#fish-silver)"/>
+    <path d="M68 40 76 27l6 10 7-18 7 11 8-15 7 16 9-10 4 17c-17-5-38-4-56 2Z" fill="#515b61"/>
+    <path d="m79 84 17 16 17-15c-12 3-23 3-34-1Z" fill="#626b6d"/>
+    <path d="M127 42c-2 7-6 12-12 15 6 3 10 8 12 15" fill="none" stroke="#596166" stroke-linecap="round" stroke-width="2.5"/>
+    <path d="M55 65c21-3 46-2 70 3" fill="none" stroke="#e5e0d1" stroke-linecap="round" stroke-width="1.5" opacity=".75"/>
+    <g fill="#596166" opacity=".42">
+      <circle cx="65" cy="51" r="1.5"/><circle cx="74" cy="47" r="1.3"/><circle cx="84" cy="44" r="1.4"/>
+      <circle cx="94" cy="42" r="1.3"/><circle cx="104" cy="43" r="1.4"/><circle cx="113" cy="46" r="1.3"/>
+      <circle cx="70" cy="71" r="1.3"/><circle cx="81" cy="73" r="1.4"/><circle cx="92" cy="75" r="1.3"/>
+      <circle cx="103" cy="75" r="1.4"/><circle cx="113" cy="72" r="1.3"/>
+    </g>
+    <path d="M59 54c18-10 42-14 65-10" fill="none" stroke="#eee9dc" stroke-linecap="round" stroke-width="2" opacity=".75"/>
+    <circle cx="141" cy="48" r="4" fill="#fff"/>
+    <circle cx="142" cy="48" r="1.8" fill="#171717"/>
+  </g>
+  <g fill="none" stroke="#c91f3a" stroke-width="1.8">
+    <circle class="bubble" cx="155" cy="40" r="3"/>
+    <circle class="bubble" cx="164" cy="52" r="2"/>
+  </g>
+</svg>

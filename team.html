@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team &amp; Leadership | Konnect Africa</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Team Page Specific Styles */
+    .team-hero {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+      color: white;
+      position: relative;
+      overflow: hidden;
+      padding: 120px 0 80px;
+    }
+
+    .team-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+      opacity: 0.3;
+    }
+
+    .team-hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .team-hero h1 {
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      font-weight: 900;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .team-hero p {
+      font-size: clamp(1.125rem, 3vw, 1.25rem);
+      margin-bottom: 2rem;
+      opacity: 0.95;
+      line-height: 1.6;
+    }
+
+    .team-content {
+      padding: 80px 0;
+      background: var(--bg-primary);
+    }
+
+    .team-section {
+      margin-bottom: 4rem;
+    }
+
+    .team-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .team-section h2 {
+      text-align: center;
+      margin-bottom: 3rem;
+      color: var(--text-primary);
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .team-card {
+      background: var(--bg-secondary);
+      padding: 2rem;
+      border-radius: var(--border-radius-lg);
+      text-align: center;
+      transition: var(--transition);
+      border: 1px solid var(--border-color);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .team-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    }
+
+    .team-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-heavy);
+    }
+
+    .team-photo {
+      display: block;
+      width: 100%;
+      height: 250px;
+      margin: 0 auto 1.5rem;
+      border-radius: 8px;
+      object-fit: cover;
+      object-position: center 35%;
+    }
+
+    .team-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+    }
+
+    .team-card .position {
+      font-size: 1rem;
+      color: var(--primary-color);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .team-card p {
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .team-intro {
+      background: var(--bg-secondary);
+      padding: 80px 0;
+    }
+
+    .team-intro-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .team-intro h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: var(--text-primary);
+    }
+
+    .team-intro p {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .team-hero {
+        padding: 100px 0 60px;
+      }
+
+      .team-hero-content {
+        padding: 0 16px;
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .team-card {
+        padding: 1.5rem;
+      }
+
+      .team-avatar {
+        width: 100px;
+        height: 100px;
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .team-hero h1 {
+        font-size: 2rem;
+      }
+
+      .team-hero p {
+        font-size: 1rem;
+      }
+
+      .team-card {
+        padding: 1.25rem;
+      }
+
+      .team-photo {
+        height: 220px;
+      }
+
+      .team-intro h2 {
+        font-size: 2rem;
+      }
+
+      .team-intro p {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="site-redesign.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header>
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <img src="fish-logo-light.svg" alt="Konnect Africa fish logo" />
+        Konnect Africa
+      </a>
+      <nav class="navbar">
+        <ul class="nav-menu" id="primary-navigation">
+          <li class="nav-item"><a href="index.html">Home</a></li>
+          <li class="nav-item"><a href="About.html">About</a></li>
+          <li class="nav-item"><a href="services.html">Programmes</a></li>
+          <li class="nav-item"><a href="portfolio.html">Projects &amp; Impact</a></li>
+          <li class="nav-item"><a href="partners.html">Partners</a></li>
+          <li class="nav-item"><a href="team.html" class="active" aria-current="page">Team &amp; Leadership</a></li>
+          <li class="nav-item"><a href="blog.html">News &amp; Insights</a></li>
+          <li class="nav-item"><a href="contact.html">Contact</a></li>
+        </ul>
+        <button class="hamburger" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-navigation">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="team-hero">
+      <div class="team-hero-content">
+        <h1>Meet Our Team</h1>
+        <p>Dedicated professionals committed to empowering communities and driving sustainable development across Africa.</p>
+      </div>
+    </section>
+
+    <section class="team-intro">
+      <div class="container">
+        <div class="team-intro-content">
+          <h2>Our Expert Team</h2>
+          <p>Our diverse team brings together decades of combined experience in governance, technology, sustainable development, and business administration. Each member brings unique skills and perspectives that enable us to deliver comprehensive solutions across Africa.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="team-content">
+      <div class="container">
+        <div class="team-section">
+          <h2>Leadership Team</h2>
+          <div class="team-grid">
+            <div class="team-card animate-fadeInUp">
+              <img class="team-photo" src="team%20and%20leadership/james%20kai%20founder.jpg" alt="James Kai, CEO and Founder of Konnect Africa" loading="lazy">
+              <h3>James Kai</h3>
+              <div class="position">CEO & Founder</div>
+              <p>Governance and Conflict Management Specialist with extensive experience in African development. Leads our strategic vision and oversees all consulting operations across the continent.</p>
+            </div>
+            <div class="team-card animate-fadeInUp">
+              <img class="team-photo" src="team%20and%20leadership/Meijberg%20Arnoud%20%20Co-founder.jpg" alt="Meijberg Arnoud, Co-founder of Konnect Africa" loading="lazy">
+              <h3>Meijberg Arnoud</h3>
+              <div class="position">Co-founder</div>
+              <p>Over 20 years of experience in African development with expertise in sustainable development, capacity building, and organizational development across diverse communities.</p>
+            </div>
+            <div class="team-card animate-fadeInUp">
+              <img class="team-photo" src="team%20and%20leadership/JOSHUA%20MALONG%20DATA%20ANALYST.jpg" alt="Joshua Malong, Director of Operations at Konnect Africa" loading="lazy">
+              <h3>Joshua Malong</h3>
+              <div class="position">Director of Operations</div>
+              <p>Software engineering expert and youth advocacy specialist. Manages our technology integration and operational excellence across all projects and client engagements.</p>
+            </div>
+            <div class="team-card animate-fadeInUp">
+              <img class="team-photo" src="team%20and%20leadership/KATRINA%20ATHIAN%20BUSINESS%20DEVELOPER.jpg" alt="Nyirou Athian Katrina, Business Administrator at Konnect Africa" loading="lazy">
+              <h3>Nyirou Athian Katrina</h3>
+              <div class="position">Business Administrator</div>
+              <p>Expert in business administration and social justice, ensuring our operations align with our mission of community empowerment and sustainable development.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Konnect Africa. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

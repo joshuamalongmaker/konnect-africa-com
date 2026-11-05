@@ -1,0 +1,43 @@
+/* Section - Location */
+#location {
+  background: url("africamap.jpg");
+  background-position: center;
+  background-size: cover;
+  padding: 100px 0;
+  text-align: center;
+  color: #000;
+}
+
+.location h2 {
+  font-size: 28px;
+  font-weight: 800;
+}
+
+/* Styles for each country block */
+.country-block {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.flag {
+  width: 100px;
+  height: auto;
+  margin-right: 20px;
+  border: 2px solid #000;
+  border-radius: 5px;
+}
+
+.country-info {
+  flex: 1;
+  text-align: left;
+}
+
+.country-info h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
