@@ -401,13 +401,19 @@ class FormValidator {
 class NotificationSystem {
   static show(message, type = 'info', duration = 3000) {
     const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
-    notification.innerHTML = `
-      <div class="notification-content">
-        <span class="notification-message">${message}</span>
-        <button class="notification-close" aria-label="Close notification">×</button>
-      </div>
-    `;
+    const safeType = ['info', 'success', 'warning', 'error'].includes(type) ? type : 'info';
+    notification.className = `notification notification-${safeType}`;
+    const content = document.createElement('div');
+    content.className = 'notification-content';
+    const messageElement = document.createElement('span');
+    messageElement.className = 'notification-message';
+    messageElement.textContent = String(message);
+    const closeButton = document.createElement('button');
+    closeButton.className = 'notification-close';
+    closeButton.setAttribute('aria-label', 'Close notification');
+    closeButton.textContent = '×';
+    content.append(messageElement, closeButton);
+    notification.appendChild(content);
     
     document.body.appendChild(notification);
     

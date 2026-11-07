@@ -482,7 +482,7 @@ footer a:hover {
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
   gap: 1.25rem;
 }
 
@@ -496,7 +496,7 @@ footer a:hover {
 
 .case-studies-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
   align-items: stretch;
   margin-top: 2rem;
 }
@@ -580,6 +580,12 @@ footer a:hover {
 .text-link:hover {
   color: var(--secondary-color);
   text-decoration: underline;
+}
+
+.values-grid,
+.contact-content,
+.footer-content {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
 }
 
 .partners-callout {
@@ -824,6 +830,21 @@ footer a:hover {
 
   .registration-panel {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 360px) {
+  .logo img {
+    width: 140px;
+    height: auto;
+  }
+
+  .header-container {
+    width: min(100% - 24px, 1180px);
+  }
+
+  .hero .hero-content h1 {
+    font-size: clamp(2.4rem, 11vw, 3rem);
   }
 }
 

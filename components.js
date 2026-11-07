@@ -94,13 +94,29 @@ function initSearch() {
                     const data = await response.json();
                     
                     if (searchResults) {
-                        searchResults.innerHTML = data.results
-                            .map(result => `
-                                <div class="search-result-item">
-                                    <a href="${result.url}">${result.title}</a>
-                                    <p>${result.excerpt}</p>
-                                </div>
-                            `).join('');
+                        searchResults.replaceChildren();
+                        const results = Array.isArray(data.results) ? data.results : [];
+                        results.forEach(result => {
+                            if (!result || typeof result.url !== 'string') return;
+
+                            let url;
+                            try {
+                                url = new URL(result.url, window.location.origin);
+                            } catch {
+                                return;
+                            }
+                            if (!['http:', 'https:'].includes(url.protocol)) return;
+
+                            const item = document.createElement('div');
+                            item.className = 'search-result-item';
+                            const link = document.createElement('a');
+                            link.href = url.href;
+                            link.textContent = typeof result.title === 'string' ? result.title : '';
+                            const excerpt = document.createElement('p');
+                            excerpt.textContent = typeof result.excerpt === 'string' ? result.excerpt : '';
+                            item.append(link, excerpt);
+                            searchResults.appendChild(item);
+                        });
                         searchResults.style.display = 'block';
                     }
                 } catch (error) {

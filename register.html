@@ -29,11 +29,11 @@
     <div class="login-title">Create your account</div>
     <form class="login-form" id="register-form" action="#" method="POST">
       <label for="email">Email address</label>
-      <input id="email" name="email" type="email" required autocomplete="email" placeholder="Enter your email" />
+      <input id="email" name="email" type="email" maxlength="254" required autocomplete="email" placeholder="Enter your email" />
       <label for="password">Password</label>
       <div style="position:relative;">
-        <input id="password" name="password" type="password" required autocomplete="new-password" placeholder="Create a password" style="padding-right:48px; width:100%; box-sizing:border-box;" />
-        <button type="button" id="toggle-password" style="position:absolute; right:8px; top:50%; transform:translateY(-50%); background:none; border:none; cursor:pointer; font-size:1em; padding:0 6px; height:28px; line-height:1; z-index:2;">Show</button>
+        <input id="password" name="password" type="password" minlength="12" maxlength="72" required autocomplete="new-password" placeholder="Use at least 12 characters" style="padding-right:48px; width:100%; box-sizing:border-box;" />
+        <button type="button" id="toggle-password" aria-pressed="false" style="position:absolute; right:8px; top:50%; transform:translateY(-50%); background:none; border:none; cursor:pointer; font-size:1em; padding:0 6px; height:28px; line-height:1; z-index:2;">Show</button>
       </div>
       <button type="submit">Register</button>
       <div class="signup">
@@ -41,45 +41,7 @@
       </div>
       <div id="register-error" style="color:#d00; text-align:center; margin-top:10px; display:none;"></div>
     </form>
-    <script>
-      document.getElementById('register-form').addEventListener('submit', async function(e) {
-        e.preventDefault();
-        const email = document.getElementById('email').value.trim();
-        const password = document.getElementById('password').value;
-        const errorDiv = document.getElementById('register-error');
-        errorDiv.style.display = 'none';
-        try {
-          const res = await fetch('/api/register', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email, password })
-          });
-          const data = await res.json();
-          if (!res.ok) {
-            errorDiv.textContent = data.message || 'Registration failed.';
-            errorDiv.style.display = 'block';
-            return;
-          }
-          // Save JWT to localStorage (or cookie) if you want
-          // localStorage.setItem('token', data.token);
-          window.location.href = 'login.html';
-        } catch (err) {
-          errorDiv.textContent = 'Network error. Please check your connection or try again later.';
-          errorDiv.style.display = 'block';
-        }
-      });
-      // Show/hide password toggle
-      document.getElementById('toggle-password').addEventListener('click', function() {
-        const pwd = document.getElementById('password');
-        if (pwd.type === 'password') {
-          pwd.type = 'text';
-          this.textContent = 'Hide';
-        } else {
-          pwd.type = 'password';
-          this.textContent = 'Show';
-        }
-      });
-    </script>
+    <script src="auth.js" defer></script>
   </div>
 </body>
 </html> 

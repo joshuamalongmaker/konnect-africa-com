@@ -160,24 +160,6 @@
 
     <script src="script.js"></script>
     <script src="components.js"></script>
-    <script>
-        // FAQ Accordion functionality
-        document.querySelectorAll('.accordion-button').forEach(button => {
-            button.addEventListener('click', () => {
-                const content = button.nextElementSibling;
-                const icon = button.querySelector('.accordion-icon');
-                
-                button.classList.toggle('active');
-                
-                if (button.classList.contains('active')) {
-                    content.style.maxHeight = content.scrollHeight + 'px';
-                    icon.textContent = '-';
-                } else {
-                    content.style.maxHeight = '0';
-                    icon.textContent = '+';
-                }
-            });
-        });
-    </script>
+    <script src="faq.js"></script>
 </body>
 </html> 

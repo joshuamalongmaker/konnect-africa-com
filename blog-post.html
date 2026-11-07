@@ -123,14 +123,6 @@
     </footer>
 
     <script src="/script.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const pageUrl = encodeURIComponent(window.location.href);
-            const title = encodeURIComponent(document.getElementById('post-title').textContent);
-            document.querySelector('.share-facebook').href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
-            document.querySelector('.share-twitter').href = `https://twitter.com/intent/tweet?text=${title}&url=${pageUrl}`;
-            document.querySelector('.share-linkedin').href = `https://www.linkedin.com/shareArticle?mini=true&url=${pageUrl}&title=${title}`;
-        });
-    </script>
+    <script src="/blog-post.js"></script>
 </body>
 </html> 

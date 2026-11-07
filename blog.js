@@ -79,6 +79,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const loadNews = async () => {
         try {
+            if (window.location.protocol === 'file:') {
+                throw new Error('The news feed needs the website server. Run npm start and open http://localhost:3000/blog.html.');
+            }
+
             const response = await fetch('/api/news', { cache: 'no-store' });
             const contentType = response.headers.get('content-type') || '';
             if (!/^application\/(?:json|[\w.+-]+\+json)(?:\s*;|$)/i.test(contentType)) {

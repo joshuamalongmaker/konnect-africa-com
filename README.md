@@ -56,6 +56,8 @@ konnect-africa-website/
    npm start
 
    Open `http://localhost:3000` to use the site. The News & Insights feed combines recent headlines from GDELT, development reports from the World Bank Documents & Reports API, and academic publication metadata from Crossref. Vercel deployments use `api/news.js` for the `/api/news` endpoint, which caches results for an hour and can return results when an individual source is unavailable. Other static-only hosts need a separately deployed API server. Keep `.env` and `credentials.json` out of public deployments.
+
+   For production, set `JWT_SECRET` to a cryptographically random value of at least 32 bytes and configure `MONGODB_URI` before starting the server. Generate a secret with `node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"`. The server refuses to start in production without a sufficiently strong secret; local development uses a temporary secret that invalidates tokens when the server restarts.
 3. Start editing and customizing as needed.
 
 ## 📌 Usage
